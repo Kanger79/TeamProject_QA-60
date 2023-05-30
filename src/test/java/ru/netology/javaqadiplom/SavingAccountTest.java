@@ -175,8 +175,6 @@ public class SavingAccountTest {
                 15
         );
 
-
-
         Assertions.assertEquals(750, account.yearChange());
     }
 }

@@ -8,19 +8,18 @@ public class CreditAccountTest {
     @Test
     public void shouldAddToNullBalance() { // пополнение при нулевом балансе
         CreditAccount account = new CreditAccount(
-                200,
+                0,
                 5_000,
                 15
         );
         System.out.print("Тест-1_Пополнение при нулевом балансе. До пополниения на балансе " + account.getBalance());
 
+        account.add(3_000);
 
-<<<<<<< HEAD
-        Assertions.assertEquals(30, account.yearChange());
-=======
+
         Assertions.assertEquals(3_000, account.getBalance());
         System.out.println("р, после пополнения " + account.balance + "р.");
->>>>>>> 3b5596d125ff745b46b5578e0de6fc89d6a3a3cd
+
     }
 
     @Test
