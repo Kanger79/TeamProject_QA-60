@@ -16,6 +16,7 @@ public class CreditAccountTest {
 
         account.add(3_000);
 
+
         Assertions.assertEquals(3_000, account.getBalance());
         System.out.println("р, после пополнения " + account.balance + "р.");
 

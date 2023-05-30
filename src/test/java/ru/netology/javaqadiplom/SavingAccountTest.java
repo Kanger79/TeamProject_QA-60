@@ -27,7 +27,7 @@ public class SavingAccountTest {
     }
 
     @Test
-    public void lessMin() { // баланс меньше макс
+    public void lessMin() { // баланс меньше мин
         Assertions.assertThrows(java.lang.IllegalArgumentException.class, () -> {
             new SavingAccount(1_000, 2_000, 10_000, 5);
         });
@@ -129,11 +129,11 @@ public class SavingAccountTest {
         SavingAccount account = new SavingAccount(
                 2_000,
                 1_000,
-                5_000,
+                6_000,
                 5
         );
 
-        account.add(2_000);
+        account.add(3_000);
 
         Assertions.assertEquals(2_000 + 2_000, account.getBalance());
     }
