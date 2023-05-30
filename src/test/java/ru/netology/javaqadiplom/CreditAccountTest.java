@@ -40,15 +40,15 @@ public class CreditAccountTest {
     @Test
     public void shouldAddToNegativeBalance() { // пополнение при отрицательном балансе
         CreditAccount account = new CreditAccount(
-                -1000,
-                5_000,
+                -2000,
+                4_000,
                 15
         );
         System.out.print("Тест-3_Пополнение при отрицательном балансе. До пополниения на балансе " + account.getBalance());
 
         account.add(5_000);
 
-        Assertions.assertEquals(4_000, account.getBalance());
+        Assertions.assertEquals(3_000, account.getBalance());
         System.out.println("р, после пополнения " + account.balance + "р.");
     }
 
@@ -67,16 +67,16 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void payPositiveBalanceMoreCreditLimit() { //покупка при положительном балансе в пределах кредитного лимита
+    public void payPositiveBalanceMoreCreditLimit() { //покупка при положительном балансе превышающая кредитный лимит
         CreditAccount account = new CreditAccount(
-                4_000,
-                3_000,
+                1_000,
+                2_000,
                 15
         );
 
-        account.pay(1_000);
+        account.pay(4_000);
 
-        Assertions.assertEquals(3000, account.getBalance());
+        Assertions.assertEquals(0, account.getBalance());
 
     }
 
@@ -114,12 +114,24 @@ public class CreditAccountTest {
 
         Assertions.assertThrows(java.lang.IllegalArgumentException.class, () -> {
             new CreditAccount(
-                    -4000,
+                    4000,
                     3000,
                     -15
             );
         });
-        System.out.println("Тест-7_");
+        System.out.println("Тест-7_Проверка наличия исключения в случае, когда кредитная ставка меньше или равна нулю");
+    }
+    @Test
+    public void initialBalanceLessCreditLimit() {
+
+        Assertions.assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            new CreditAccount(
+                    -4000,
+                    3000,
+                    15
+            );
+        });
+        System.out.println("Тест-8_Проверка наличия исключения в случае, когда отрицательный баланс превышает допустимый кредитный лимит");
     }
 
 }
