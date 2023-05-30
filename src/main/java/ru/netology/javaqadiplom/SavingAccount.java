@@ -25,6 +25,11 @@ public class SavingAccount extends Account {
               "Накопительная ставка не может быть отрицательной, а у вас: " + rate
             );
         }
+        if (minBalance > maxBalance){
+            throw new IllegalArgumentException(
+                    "Минималка больше максималки"
+            );
+        }
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
