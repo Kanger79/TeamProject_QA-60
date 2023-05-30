@@ -113,7 +113,7 @@ public class CreditAccountTest {
 
         Assertions.assertThrows(java.lang.IllegalArgumentException.class, () -> {
             new CreditAccount(
-                    -200,
+                    -4000,
                     3000,
                     -15
             );
