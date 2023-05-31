@@ -66,6 +66,7 @@ public class SavingAccountTest {
         account.pay(100_000);
 
         Assertions.assertEquals(5_000, account.getBalance());
+        System.out.println("Остаток баланса меньше минимального " + account.getMinBalance());
     }
 
     @Test
@@ -122,6 +123,7 @@ public class SavingAccountTest {
         account.add(3_000);
 
         Assertions.assertEquals(2_000 + 3_000, account.getBalance());
+        System.out.println("Остаток баланса равна максимальному балансу " + account.getMaxBalance());
     }
 
     @Test

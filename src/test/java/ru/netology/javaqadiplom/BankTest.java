@@ -9,7 +9,7 @@ public class BankTest {
         SavingAccount account1 = new SavingAccount(10_000, 1_000, 10_000, 5);
         SavingAccount account2 = new SavingAccount(5_000, 1_000, 20_000, 5);
         Bank.transfer(account1, account2, 9000);
-        Assertions.assertEquals(10_000, account2.getBalance());
+        Assertions.assertEquals(14_000, account2.getBalance());
     }
 
     @Test
@@ -17,7 +17,7 @@ public class BankTest {
         CreditAccount account1 = new CreditAccount(0, 5_000, 15);
         CreditAccount account2 = new CreditAccount(0, 5_000, 15);
         Bank.transfer(account1, account2, 4000);
-        Assertions.assertEquals(4_000, account2.getBalance());
+        Assertions.assertEquals(8_000, account2.getBalance());
 
     }
 
@@ -27,5 +27,12 @@ public class BankTest {
         CreditAccount account2 = new CreditAccount(0, 5_000, 15);
         Assertions.assertEquals(false, Bank.transfer(account1, account2, 0));
 
+    }
+    @Test
+    public void Test4() { // платеж слишком высокий, конечная сумма меньше мин
+        SavingAccount account1 = new SavingAccount(5_000, 1_000, 10_000, 5);
+        SavingAccount account2 = new SavingAccount(5_000, 1_000, 10_000, 5);
+        Bank.transfer(account1, account2, 9000);
+        Assertions.assertEquals(5_000, account2.getBalance());
     }
 }
