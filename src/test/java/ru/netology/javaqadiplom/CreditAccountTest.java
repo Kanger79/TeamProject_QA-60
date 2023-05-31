@@ -129,7 +129,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void initialBalanceLessCreditLimit() {
+    public void negativeInitialBalance() {
 
         Assertions.assertThrows(java.lang.IllegalArgumentException.class, () -> {
             new CreditAccount(
@@ -138,7 +138,7 @@ public class CreditAccountTest {
                     15
             );
         });
-        System.out.println("Тест-8_Проверка наличия исключения в случае, когда отрицательный баланс превышает допустимый кредитный лимит");
+        System.out.println("Тест-8_Проверка наличия исключения в случае, когда начальный баланс отрицательный");
     }
 
     @Test
@@ -151,7 +151,7 @@ public class CreditAccountTest {
                     15
             );
         });
-        System.out.println("Тест-8_Проверка наличия исключения в случае, когда отрицательный баланс превышает допустимый кредитный лимит");
+        System.out.println("Тест-9_Проверка наличия исключения в случае, когда кредитный лимит имеет отрицательное значение");
     }
 
 }
