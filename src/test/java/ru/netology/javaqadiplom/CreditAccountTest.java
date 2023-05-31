@@ -103,7 +103,7 @@ public class CreditAccountTest {
                 3000,
                 15
         );
-             account.pay(500);
+        account.pay(500);
 
         System.out.print("Тест-6_Расчет процентов на отрицательный баланс при положительном балансе. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
@@ -124,6 +124,7 @@ public class CreditAccountTest {
         });
         System.out.println("Тест-7_Проверка наличия исключения в случае, когда кредитная ставка меньше или равна нулю");
     }
+
     @Test
     public void initialBalanceLessCreditLimit() {
 
