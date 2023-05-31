@@ -83,14 +83,15 @@ public class CreditAccountTest {
     @Test
     public void yearChangeNegativeBalance() { // Расчет процентов на отрицательный баланс
         CreditAccount account = new CreditAccount(
-                -200,
+                1000,
                 3000,
                 15
         );
+        account.pay(3000);
         System.out.print("Тест-5_Расчет процентов на отрицательный баланс. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
 
-        Assertions.assertEquals(-30, account.yearChange());
+        Assertions.assertEquals(-450, account.yearChange());
         System.out.println("оплата процентов составит " + account.yearChange());
 
     }
