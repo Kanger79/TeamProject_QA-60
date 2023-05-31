@@ -103,12 +103,12 @@ public class CreditAccountTest {
                 3000,
                 15
         );
-        account.pay(4000);
+             account.pay(500);
 
         System.out.print("Тест-6_Расчет процентов на отрицательный баланс при положительном балансе. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
 
-        Assertions.assertEquals(-450, account.yearChange());
+        Assertions.assertEquals(0, account.yearChange());
         System.out.println("оплата процентов составит " + account.yearChange());
     }
 
