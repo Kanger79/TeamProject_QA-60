@@ -43,7 +43,7 @@ public class SavingAccount extends Account {
         }
         if (minBalance < 0) {
             throw new IllegalArgumentException(
-                    "Начальный баланс не может отрицательным, а у Вас " + minBalance
+                    "Начальный баланс не может быть отрицательным, а у Вас " + minBalance
             );
         }
         this.balance = initialBalance;
