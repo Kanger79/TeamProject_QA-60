@@ -40,12 +40,12 @@ public class CreditAccountTest {
     @Test
     public void shouldAddToNegativeBalance() { // пополнение при отрицательном балансе
         CreditAccount account = new CreditAccount(
-                -2000,
+                0,
                 4_000,
                 15
         );
         System.out.print("Тест-3_Пополнение при отрицательном балансе. До пополниения на балансе " + account.getBalance());
-
+        account.pay(2_000);
         account.add(5_000);
 
         Assertions.assertEquals(3_000, account.getBalance());
@@ -76,21 +76,22 @@ public class CreditAccountTest {
 
         account.pay(4_000);
 
-        Assertions.assertEquals(0, account.getBalance());
+        Assertions.assertEquals(1_000, account.getBalance());
 
     }
 
     @Test
     public void yearChangeNegativeBalance() { // Расчет процентов на отрицательный баланс
         CreditAccount account = new CreditAccount(
-                -200,
+                1000,
                 3000,
                 15
         );
+        account.pay(4000);
         System.out.print("Тест-5_Расчет процентов на отрицательный баланс. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
 
-        Assertions.assertEquals(-30, account.yearChange());
+        Assertions.assertEquals(-450, account.yearChange());
         System.out.println("оплата процентов составит " + account.yearChange());
 
     }
@@ -102,12 +103,12 @@ public class CreditAccountTest {
                 3000,
                 15
         );
-        account.pay(4000);
+        account.pay(1000);
 
         System.out.print("Тест-6_Расчет процентов на отрицательный баланс при положительном балансе. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
 
-        Assertions.assertEquals(-450, account.yearChange());
+        Assertions.assertEquals(0, account.yearChange());
         System.out.println("оплата процентов составит " + account.yearChange());
     }
 
@@ -130,6 +131,18 @@ public class CreditAccountTest {
             new CreditAccount(
                     -4000,
                     3000,
+                    15
+            );
+        });
+        System.out.println("Тест-8_Проверка наличия исключения в случае, когда отрицательный баланс превышает допустимый кредитный лимит");
+    }
+    @Test
+    public void negativeLimitCheckCreditLimit() {
+
+        Assertions.assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            new CreditAccount(
+                    4000,
+                    -3000,
                     15
             );
         });
