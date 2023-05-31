@@ -87,11 +87,12 @@ public class CreditAccountTest {
                 3000,
                 15
         );
-        account.pay(4000);
+        account.pay(3000);
+
         System.out.print("Тест-5_Расчет процентов на отрицательный баланс. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
 
-        Assertions.assertEquals(-450, account.yearChange());
+        Assertions.assertEquals(-300, account.yearChange());
         System.out.println("оплата процентов составит " + account.yearChange());
 
     }
@@ -103,7 +104,9 @@ public class CreditAccountTest {
                 3000,
                 15
         );
-        account.pay(1000);
+
+        account.pay(500);
+
 
         System.out.print("Тест-6_Расчет процентов на отрицательный баланс при положительном балансе. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
@@ -124,6 +127,7 @@ public class CreditAccountTest {
         });
         System.out.println("Тест-7_Проверка наличия исключения в случае, когда кредитная ставка меньше или равна нулю");
     }
+
     @Test
     public void initialBalanceLessCreditLimit() {
 
@@ -136,6 +140,7 @@ public class CreditAccountTest {
         });
         System.out.println("Тест-8_Проверка наличия исключения в случае, когда отрицательный баланс превышает допустимый кредитный лимит");
     }
+
     @Test
     public void negativeLimitCheckCreditLimit() {
 
