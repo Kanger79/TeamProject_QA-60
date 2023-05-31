@@ -27,7 +27,7 @@ public class SavingAccount extends Account {
         }
         if (minBalance > maxBalance){
             throw new IllegalArgumentException(
-                    "Минималка больше максималки"
+                    "Минимальный баланс больше максимального"
             );
         }
         this.balance = initialBalance;
@@ -75,7 +75,7 @@ public class SavingAccount extends Account {
             return false;
         }
         if (balance + amount < maxBalance) {
-            balance = amount;
+            balance += amount;
             return true;
         } else {
             return false;

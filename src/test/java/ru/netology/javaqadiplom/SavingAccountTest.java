@@ -136,6 +136,7 @@ public class SavingAccountTest {
         account.add(3_000);
 
         Assertions.assertEquals(3_000 + 2_000, account.getBalance());
+
     }
 
     @Test
