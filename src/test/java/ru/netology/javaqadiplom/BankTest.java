@@ -14,6 +14,7 @@ public class BankTest {
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
 
     }
+
     @Test
     public void transferBetweenSavingsAccountsFailedDueToFirstAccount() {//перевод между накопителными счетами не выполнился из-за первого счета
         Bank bank = new Bank();
@@ -24,6 +25,7 @@ public class BankTest {
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
 
     }
+
     @Test
     public void transferBetweenSavingsAccountsFailedDueToSecondAccount() {//перевод между накопителными счетами не выполнился из-за второго счета
         Bank bank = new Bank();
@@ -34,6 +36,7 @@ public class BankTest {
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
 
     }
+
     @Test
     public void zeroTransferBetweenSavingsAccountsFailed() {//нулевой перевод между накопителными счетами не выполнился
         Bank bank = new Bank();
@@ -55,6 +58,7 @@ public class BankTest {
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
 
     }
+
     @Test
     public void transferBetweenCreditsFailedDueToLimitLimit() {//перевод между кредитными не выполнился из-за ограничения лимита
         Bank bank = new Bank();
@@ -64,6 +68,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenLoanAccounts() {//перевод между кредитными счетами кредита
         Bank bank = new Bank();
@@ -73,6 +78,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void zeroTransferBetweenCreditAccountsFailed() {//нулевой перевод между кредитными счетами не выполнился
         Bank bank = new Bank();
@@ -82,6 +88,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenCreditAndSavingsAccount() {//перевод между кредитными и накопительным счетом
         Bank bank = new Bank();
@@ -91,6 +98,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenASavingsAccountAndALoanAccount() {//перевод между накопительным и кредитным счетом
         Bank bank = new Bank();
@@ -100,6 +108,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenASavingsAccountAndALoanAccountOnCredit() {//перевод между кредитными и накопительным счетом в кредит
         Bank bank = new Bank();
@@ -109,6 +118,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenCreditAndSavingsAccountsOnCreditLimitExceeded() {//перевод между кредитными и накопительным счетом в кредит превышен лимит
         Bank bank = new Bank();
@@ -118,6 +128,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenCreditAndSavingsAccountMaximumBalanceExceeded() {//перевод между кредитными и накопительным счетом превышен максимальный баланс
         Bank bank = new Bank();
@@ -127,6 +138,7 @@ public class BankTest {
         System.out.println("Баланс счета с которого переводим:" + account1.getBalance());
         System.out.println("Баланс счета на который переводим:" + account2.getBalance());
     }
+
     @Test
     public void transferBetweenSavingsAndLoanAccountBalanceTooLow() {//перевод между накопительным и кредитным счетом слишком низкий баланс
         Bank bank = new Bank();
