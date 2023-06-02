@@ -25,7 +25,9 @@ public class Bank {
             from.balance += amount;
             return false;
         }
-
+        if (from.pay(amount)) {
+            to.add(amount);
+        }
         return true;
     }
 }
