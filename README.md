@@ -1,7 +1,9 @@
 <div align="right">
-
+  
 ![netology_200x90](https://i.imgur.com/6zzdXl9.jpg)
 
+  **Исправлено 07.06.2023**
+    
 <div align="center">
 
 # Командный проект по курсу 
