@@ -175,13 +175,13 @@ public class SavingAccountTest {
     @Test
     public void interestOnTheBalance() { // считаем процент на остаток
         SavingAccount account = new SavingAccount(
-                5_000,
-                1_000,
+                99,
+                10,
                 10_000,
-                15
+                80
         );
 
-        Assertions.assertEquals(750, account.yearChange());
+        Assertions.assertEquals(79, account.yearChange());
     }
 
     @Test
