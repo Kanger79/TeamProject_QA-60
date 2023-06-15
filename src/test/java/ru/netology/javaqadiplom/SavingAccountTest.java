@@ -173,6 +173,17 @@ public class SavingAccountTest {
     }
 
     @Test
+    public void interestOnTheBalanceWithRounding() { // считаем процент с округлением
+        SavingAccount account = new SavingAccount(
+                99,
+                10,
+                10_000,
+                80
+        );
+
+        Assertions.assertEquals(79, account.yearChange());
+    }
+    @Test
     public void interestOnTheBalance() { // считаем процент на остаток
         SavingAccount account = new SavingAccount(
                 5_000,
