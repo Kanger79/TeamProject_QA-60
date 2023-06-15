@@ -25,7 +25,6 @@ public class Bank {
             from.balance += amount;
             return false;
         }
-
         return true;
     }
 }
