@@ -17,7 +17,7 @@ public class CreditAccountTest {
         account.add(3_000);
 
         Assertions.assertEquals(3_000, account.getBalance());
-        System.out.println("р, после пополнения " + account.balance + "р.");
+        System.out.println("р, после пополнения на 3000р стало " + account.balance + "р.");
 
     }
 
@@ -33,7 +33,7 @@ public class CreditAccountTest {
         account.add(4_000);
 
         Assertions.assertEquals(5_000, account.getBalance());
-        System.out.println("р, после пополнения " + account.balance + "р.");
+        System.out.println("р, после пополнения на 4000р стало " + account.balance + "р.");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CreditAccountTest {
         account.add(5_000);
 
         Assertions.assertEquals(3_000, account.getBalance());
-        System.out.println("р, после пополнения " + account.balance + "р.");
+        System.out.println("р, покупаем в кредит (-2000р) и пополняем на 5000р, получаем " + account.balance + "р.");
     }
 
     @Test
@@ -58,11 +58,11 @@ public class CreditAccountTest {
                 3_000,
                 15
         );
-
+        System.out.print("Тест-4_Покупка при положительном балансе. До покупки на балансе " + account.getBalance());
         account.pay(1_000);
 
         Assertions.assertEquals(3000, account.getBalance());
-        System.out.println("Тест-4_");
+        System.out.println("р, покупаем на 1000р, остается " + account.getBalance());
 
     }
 
@@ -77,8 +77,7 @@ public class CreditAccountTest {
         account.pay(4_000);
 
         Assertions.assertEquals(1_000, account.getBalance());
-        System.out.println("Тест-5_Покупка превышает кредитный лимит в " + account.getCreditLimit() + "р.");
-
+        System.out.println("Тест-5_На балансе " + account.getBalance() + "р, стоимость покупки (4000р) превышает кредитный лимит " + account.getCreditLimit() + "р, покупка не состоялась, на балансе " + account.getBalance());
     }
 
     @Test
@@ -107,8 +106,7 @@ public class CreditAccountTest {
         );
         account.pay(500);
 
-
-        account.pay(500);
+//        account.pay(500);
 
         System.out.print("Тест-7_Расчет процентов на отрицательный баланс при положительном балансе. При балансе " + account.getBalance() + "р, и процентной ставке " + account.getRate() + "%, ");
         account.yearChange();
@@ -127,7 +125,7 @@ public class CreditAccountTest {
                     -15
             );
         });
-        System.out.println("Тест-8_Проверка наличия исключения в случае, когда кредитная ставка меньше или равна нулю");
+        System.out.println("Тест-8_Проверка наличия исключения в случае отрицательной кредитной ставке");
     }
 
     @Test
@@ -165,19 +163,37 @@ public class CreditAccountTest {
         );
         account.pay(-50);
         Assertions.assertEquals(0, account.yearChange());
-        System.out.println("Тест-11_Оплата не может быть отрицательной");
+        System.out.println("Тест-11_Оплата не может быть отрицательной, покупка не состоялась");
     }
 
     @Test
-    public void negativeAmountInAdd() {
+    public void negativeAmountInAdd() {  //отрицательное пополнение
         CreditAccount account = new CreditAccount(
                 2000,
                 4000,
                 15
         );
         account.add(-50);
+        Assertions.assertEquals(2000, account.getBalance());
         Assertions.assertEquals(0, account.yearChange());
-        System.out.println("Тест-12_Пополнение не может быть отрицательным");
+        System.out.println("Тест-13_Пополнение не может быть отрицательным.");
+    }
+
+    @Test
+    public void yearChangeNegativeBalanceLittleSum() { // Расчет процентов на отрицательный баланс с суммой эквивалентной процентной ставке
+        CreditAccount account = new CreditAccount(
+                500,
+                3000,
+                80
+        );
+        account.pay(599);
+
+
+        account.yearChange();
+
+        Assertions.assertEquals(-79, account.yearChange());
+
+
     }
 
 
