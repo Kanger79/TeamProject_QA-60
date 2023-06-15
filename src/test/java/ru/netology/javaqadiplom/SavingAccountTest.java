@@ -67,6 +67,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(5_000, account.getBalance());
         System.out.println("Остаток баланса меньше минимального " + account.getMinBalance());
+
     }
 
     @Test
@@ -123,7 +124,9 @@ public class SavingAccountTest {
         account.add(3_000);
 
         Assertions.assertEquals(2_000 + 3_000, account.getBalance());
+
         System.out.println("Результат пополнения равен максимальному " + account.getMaxBalance());
+
     }
 
     @Test
@@ -179,5 +182,35 @@ public class SavingAccountTest {
         );
 
         Assertions.assertEquals(750, account.yearChange());
+    }
+
+    @Test
+    public void toCoverPay() { // Для покрытия
+        Account Account = new Account();
+
+        Assertions.assertEquals(false, Account.pay(20));
+    }
+
+    @Test
+    public void toCoverAdd() { // Для покрытия
+        Account Account = new Account();
+
+        Assertions.assertEquals(false, Account.add(20));
+    }
+
+    @Test
+    public void toCoverYearChange() { // Для покрытия
+        Account Account = new Account();
+
+        Assertions.assertEquals(0, Account.yearChange());
+    }
+
+    @Test
+    public void toCoverSetRate() { // Для покрытия
+        Account Account = new Account();
+        int rate = 10;
+        Account.setRate(10);
+
+        System.out.println(rate);
     }
 }

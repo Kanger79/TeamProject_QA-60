@@ -138,7 +138,9 @@ public class CreditAccountTest {
                     15
             );
         });
+
         System.out.println("Тест-9_Проверка наличия исключения в случае, когда начальный баланс отрицательный");
+
     }
 
     @Test
@@ -151,7 +153,9 @@ public class CreditAccountTest {
                     15
             );
         });
+
         System.out.println("Тест-10_Кредитный лимит не может принимать отрицательное значение");
+
     }
 
     @Test
