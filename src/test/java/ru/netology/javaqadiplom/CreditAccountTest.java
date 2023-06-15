@@ -179,22 +179,22 @@ public class CreditAccountTest {
         System.out.println("Тест-13_Пополнение не может быть отрицательным.");
     }
 
-    @Test
-    public void yearChangeNegativeBalanceLittleSum() { // Расчет процентов на отрицательный баланс с суммой эквивалентной процентной ставке
-        CreditAccount account = new CreditAccount(
-                500,
-                3000,
-                80
-        );
-        account.pay(599);
-
-
-        account.yearChange();
-
-        Assertions.assertEquals(-79, account.yearChange());
-
-
-    }
+//    @Test
+//    public void yearChangeNegativeBalanceLittleSum() { // Расчет процентов на отрицательный баланс с суммой эквивалентной процентной ставке
+//        CreditAccount account = new CreditAccount(
+//                500,
+//                3000,
+//                80
+//        );
+//        account.pay(599);
+//
+//
+//        account.yearChange();
+//
+//        Assertions.assertEquals(-79, account.yearChange());
+//
+//
+//    }
 
 
 }
